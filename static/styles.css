@@ -1,0 +1,48 @@
+/* Product Listing */
+.products {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    padding: 0;
+    list-style: none;
+}
+
+.products li {
+    background-color: white;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+
+.products li:hover {
+    transform: scale(1.05);
+}
+
+.products li img {
+    width: 50%;
+    /* Görsellerin boyutunu yarıya düşür */
+    height: auto;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+.products li a {
+    text-decoration: none;
+    color: #3498db;
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+.products li a:hover {
+    color: #e74c3c;
+}
+
+.products li span {
+    display: block;
+    font-size: 1rem;
+    color: #27ae60;
+}

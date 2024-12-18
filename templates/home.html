@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ShopEase</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f4f4f4;
+        }
+
+        header {
+            text-align: center;
+            padding: 20px;
+            background-color: #f88e25;
+            color: #0008ec;
+            margin-bottom: 20px;
+        }
+
+        header h1 {
+            margin: 0;
+        }
+
+        form {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        form input {
+            padding: 10px;
+            width: 250px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        form button {
+            padding: 10px 15px;
+            background-color: #3498db;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        form button:hover {
+            background-color: #2980b9;
+        }
+
+        h2 {
+            color: #34495e;
+            border-bottom: 2px solid #bdc3c7;
+            padding-bottom: 5px;
+            margin-bottom: 15px;
+        }
+
+        .categories {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            list-style: none;
+            padding: 0;
+        }
+
+        .categories li {
+            background-color: #ecf0f1;
+            padding: 10px 20px;
+            border-radius: 5px;
+            border: 1px solid #bdc3c7;
+            cursor: pointer;
+            text-align: center;
+            flex: 1 1 calc(25% - 20px);
+            box-sizing: border-box;
+        }
+
+        .categories li:hover {
+            background-color: #dcdde1;
+        }
+
+        .categories li a {
+            text-decoration: none;
+            color: #2c3e50;
+            font-weight: bold;
+        }
+
+        .categories li a:hover {
+            color: #e74c3c;
+        }
+
+        .products {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            list-style: none;
+            padding: 0;
+        }
+
+        .products li {
+            background-color: #ffffff;
+            padding: 15px;
+            border: 1px solid #ffffff;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            flex: 1 1 calc(25% - 20px);
+            box-sizing: border-box;
+        }
+
+        .products li img {
+            max-width: 50%;
+            height: auto;
+            border-radius: 5px;
+            margin-bottom: 10px;
+            object-fit: contain;
+            background-color: #ffffff;
+            padding: 5px;
+            border: 1px solid #ffffff;
+        }
+
+        .products li a {
+            display: block;
+            margin: 10px 0;
+            color: #2c3e50;
+            font-size: 18px;
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+        .products li a:hover {
+            color: #e74c3c;
+        }
+
+        .products li span {
+            display: block;
+            font-size: 16px;
+            color: #27ae60;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>ShopEase</h1>
+    </header>
+
+    <form action="/search">
+        <input type="text" name="q" placeholder="Search products...">
+        <button type="submit">Search</button>
+    </form>
+
+    <h2>Categories</h2>
+    <ul class="categories">
+        {% for category in categories %}
+        <li>
+            <a href="/category/{{ category[0] }}">{{ category[0] }}</a>
+        </li>
+        {% endfor %}
+    </ul>
+
+    <h2>Products</h2>
+    <ul class="products">
+        {% for product in products %}
+        <li>
+            <a href="/product/{{ product.id }}">
+                <img src="{{ product.image_url }}" alt="{{ product.name }}">
+            </a>
+            <a href="/product/{{ product.id }}">{{ product.name }}</a>
+            <span>{{ product.price }} USD</span>
+        </li>
+        {% endfor %}
+    </ul>
+</body>
+
+</html>

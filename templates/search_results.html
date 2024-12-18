@@ -1,0 +1,70 @@
+{% extends "base.html" %}
+{% block content %}
+<style>
+    .search-results-container {
+        max-width: 800px;
+        margin: 20px auto;
+        font-family: Arial, sans-serif;
+    }
+
+    .search-results-container h2 {
+        font-size: 1.8rem;
+        color: #2c3e50;
+        margin-bottom: 20px;
+        text-align: center;
+    }
+
+    .product-list {
+        list-style: none;
+        padding: 0;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 15px;
+        justify-content: center;
+    }
+
+    .product-item {
+        background-color: #ffffff;
+        border: 1px solid #ddd;
+        border-radius: 10px;
+        padding: 15px;
+        width: calc(33.33% - 20px);
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        text-align: center;
+        transition: transform 0.3s ease;
+    }
+
+    .product-item:hover {
+        transform: scale(1.05);
+    }
+
+    .product-item a {
+        text-decoration: none;
+        font-size: 1.2rem;
+        color: #3498db;
+        font-weight: bold;
+    }
+
+    .product-item a:hover {
+        color: #e74c3c;
+    }
+
+    .product-item .price {
+        font-size: 1rem;
+        color: #27ae60;
+        margin-top: 10px;
+    }
+</style>
+
+<div class="search-results-container">
+    <h2>Search Results: "{{ query }}"</h2>
+    <ul class="product-list">
+        {% for product in products %}
+        <li class="product-item">
+            <a href="/product/{{ product.id }}">{{ product.name }}</a>
+            <p class="price">{{ product.price }} USD</p>
+        </li>
+        {% endfor %}
+    </ul>
+</div>
+{% endblock %}

@@ -1,0 +1,137 @@
+{% extends "base.html" %}
+{% block content %}
+<style>
+    .breadcrumbs {
+        margin: 10px 0;
+        font-size: 0.9rem;
+        color: #7f8c8d;
+    }
+
+    .breadcrumbs a {
+        text-decoration: none;
+        color: #3498db;
+        margin-right: 5px;
+    }
+
+    .breadcrumbs a:hover {
+        text-decoration: underline;
+    }
+
+    .breadcrumbs span {
+        margin-right: 5px;
+        color: #7f8c8d;
+    }
+</style>
+
+<div class="breadcrumbs">
+    {% for crumb in breadcrumbs %}
+    {% if not loop.last %}
+    <a href="{{ crumb.url }}">{{ crumb.name }}</a><span>&gt;</span>
+    {% else %}
+    <span>{{ crumb.name }}</span>
+    {% endif %}
+    {% endfor %}
+</div>
+
+<div class="product-container">
+    <h2>{{ product.name }}</h2>
+    <img src="{{ product.image_url }}" alt="{{ product.name }}">
+    <p class="price">Price: {{ product.price }} USD</p>
+    <p class="category">Category: {{ product.category }}</p>
+    <div class="description">
+        <p>{{ product.description }}</p>
+    </div>
+    <div class="details">
+        {% if product.name == "Red Dress" %}
+        <h3>Product Details</h3>
+        <p><strong>Product Code:</strong> K12345</p>
+        <p><strong>Fabric Composition:</strong> 100% Cotton</p>
+        <p><strong>Color:</strong> Red</p>
+        <p><strong>Fit:</strong> Slim fit, deep V-neck</p>
+        <p><strong>Features:</strong> Slit design, long sleeves, slightly shiny fabric</p>
+        <p><strong>Styling Suggestion:</strong> Pair with high heels and a blazer jacket.</p>
+        <p><strong>Washing Instructions:</strong> Gentle wash at 30°C, wash inside out.</p>
+        {% elif product.name == "Men's Watch" %}
+        <h3>Product Details</h3>
+        <p><strong>Product Code:</strong> E98765</p>
+        <p><strong>Material:</strong> Stainless steel and genuine leather strap</p>
+        <p><strong>Color:</strong> Black dial, silver case</p>
+        <p><strong>Diameter:</strong> 42 mm</p>
+        <p><strong>Features:</strong> Waterproof: 5 ATM, quartz movement</p>
+        <p><strong>Styling Suggestion:</strong> Perfect accessory for adding elegance to daily outfits.</p>
+        <p><strong>Washing Instructions:</strong> Clean the strap with a damp cloth. Avoid chemical cleaners.</p>
+        {% elif product.name == "Black Evening Dress" %}
+        <h3>Product Details</h3>
+        <p><strong>Product Code:</strong> A54321</p>
+        <p><strong>Fabric Composition:</strong> 90% Polyester, 10% Lycra</p>
+        <p><strong>Color:</strong> Black</p>
+        <p><strong>Fit:</strong> Long cut, elegant lace detail</p>
+        <p><strong>Features:</strong> Adjustable thin straps, back detail</p>
+        <p><strong>Styling Suggestion:</strong> Pair with stilettos for weddings and special events.</p>
+        <p><strong>Washing Instructions:</strong> Wash by hand in cold water. Hang to dry.</p>
+        {% elif product.name == "Blue Denim Jacket" %}
+        <h3>Product Details</h3>
+        <p><strong>Product Code:</strong> C87654</p>
+        <p><strong>Fabric Composition:</strong> 100% Denim</p>
+        <p><strong>Color:</strong> Light Blue</p>
+        <p><strong>Fit:</strong> Oversized relaxed fit</p>
+        <p><strong>Features:</strong> Metal button details, double-pocket design</p>
+        <p><strong>Styling Suggestion:</strong> Pair with a white t-shirt for a casual look.</p>
+        <p><strong>Washing Instructions:</strong> Machine wash at 30°C. Do not use bleach.</p>
+        {% elif product.name == "White Tunic" %}
+        <h3>Product Details</h3>
+        <p><strong>Product Code:</strong> T43210</p>
+        <p><strong>Fabric Composition:</strong> 70% Cotton, 30% Polyester</p>
+        <p><strong>Color:</strong> White</p>
+        <p><strong>Fit:</strong> Relaxed fit</p>
+        <p><strong>Features:</strong> Breathable fabric, long length</p>
+        <p><strong>Styling Suggestion:</strong> Pair with sneakers for daily wear.</p>
+        <p><strong>Washing Instructions:</strong> Machine wash at 40°C.</p>
+        {% elif product.name == "Patterned Dress" %}
+        <h3>Product Details</h3>
+        <p><strong>Product Code:</strong> D54632</p>
+        <p><strong>Fabric Composition:</strong> 95% Viscose, 5% Lycra</p>
+        <p><strong>Color:</strong> Multicolor</p>
+        <p><strong>Styling Suggestion:</strong> Ideal for summer days paired with sandals.</p>
+        <p><strong>Washing Instructions:</strong> Gentle wash at 30°C.</p>
+        {% elif product.name == "Velvet Blouse" %}
+        <h3>Product Details</h3>
+        <p><strong>Product Code:</strong> B45678</p>
+        <p><strong>Fabric Composition:</strong> 80% Velvet, 20% Polyester</p>
+        <p><strong>Color:</strong> Burgundy</p>
+        <p><strong>Fit:</strong> Long sleeve, off-shoulder</p>
+        <p><strong>Features:</strong> Soft velvet texture, elegant design</p>
+        <p><strong>Styling Suggestion:</strong> Pair with high-waisted pants or a skirt.</p>
+        <p><strong>Washing Instructions:</strong> Machine wash at 30°C. Do not bleach. Do not tumble dry.</p>
+        {% elif product.name == "Plaid Shirt" %}
+        <h3>Product Details</h3>
+        <p><strong>Product Code:</strong> G78901</p>
+        <p><strong>Fabric Composition:</strong> 70% Cotton, 30% Polyester</p>
+        <p><strong>Color:</strong> Beige</p>
+        <p><strong>Fit:</strong> Oversized, relaxed fit</p>
+        <p><strong>Features:</strong> Double-pocket design, buttoned style</p>
+        <p><strong>Styling Suggestion:</strong> Combine with skinny jeans for a casual look.</p>
+        <p><strong>Washing Instructions:</strong> Machine wash at 40°C. Do not bleach.</p>
+        {% elif product.name == "Slit Pencil Skirt" %}
+        <h3>Product Details</h3>
+        <p><strong>Product Code:</strong> E65432</p>
+        <p><strong>Fabric Composition:</strong> 60% Polyester, 40% Viscose</p>
+        <p><strong>Color:</strong> Black</p>
+        <p><strong>Fit:</strong> Below the knee, slit style</p>
+        <p><strong>Features:</strong> Elegant design, zipper detail</p>
+        <p><strong>Styling Suggestion:</strong> Pair with a blouse and stilettos for office wear.</p>
+        <p><strong>Washing Instructions:</strong> Machine wash at 40°C. Do not bleach.</p>
+        {% elif product.name == "Burgundy Coat" %}
+        <h3>Product Details</h3>
+        <p><strong>Product Code:</strong> K90123</p>
+        <p><strong>Fabric Composition:</strong> 80% Wool, 20% Acrylic</p>
+        <p><strong>Color:</strong> Burgundy</p>
+        <p><strong>Fit:</strong> Long, buttoned</p>
+        <p><strong>Features:</strong> Keeps warm in cold weather, pocket design</p>
+        <p><strong>Styling Suggestion:</strong> Ideal for winter paired with boots and scarves.</p>
+        <p><strong>Washing Instructions:</strong> Dry clean recommended.</p>
+        {% endif %}
+    </div>
+    <a href="/" class="back-link">Return to Home</a>
+</div>
+{% endblock %}

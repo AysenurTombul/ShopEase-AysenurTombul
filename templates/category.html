@@ -1,0 +1,76 @@
+{% extends "base.html" %}
+{% block content %}
+<style>
+    .products {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+        list-style: none;
+        padding: 0;
+    }
+
+    .products li {
+        background-color: white;
+        padding: 15px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        text-align: center;
+        flex: 1 1 calc(25% - 20px);
+        box-sizing: border-box;
+    }
+
+    .products li img {
+        max-width: 100%;
+        height: auto;
+        border-radius: 5px;
+        margin-bottom: 10px;
+    }
+
+    .products li a {
+        display: block;
+        margin: 10px 0;
+        color: #2c3e50;
+        font-size: 18px;
+        font-weight: bold;
+        text-decoration: none;
+    }
+
+    .products li a:hover {
+        color: #e74c3c;
+    }
+
+    .products li span {
+        display: block;
+        font-size: 16px;
+        color: #27ae60;
+    }
+
+    .back-link {
+        display: block;
+        margin-top: 20px;
+        text-align: center;
+        font-size: 1.2rem;
+        color: #3498db;
+        text-decoration: none;
+    }
+
+    .back-link:hover {
+        color: #2980b9;
+    }
+</style>
+
+<h1>{{ category_name }} Products</h1>
+<ul class="products">
+    {% for product in products %}
+    <li>
+        <a href="/product/{{ product.id }}">
+            <img src="{{ product.image_url }}" alt="{{ product.name }}">
+        </a>
+        <a href="/product/{{ product.id }}">{{ product.name }}</a>
+        <span>{{ product.price }} USD</span>
+    </li>
+    {% endfor %}
+</ul>
+<a href="/" class="back-link">Return to Home Page</a>
+{% endblock %}

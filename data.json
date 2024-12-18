@@ -1,0 +1,82 @@
+[
+    {
+        "name": "Red Dress",
+        "description": "Elegant and stylish red dress",
+        "price": 999.99,
+        "category": "Women's Clothing",
+        "image_url": "https://cdn.dsmcdn.com/ty1602/product/media/images/prod/PIM/20241115/08/42afbff5-6a3b-4ca0-a6c6-90fb1d8143fe/1_org_zoom.jpg",
+        "gender": "Women"
+    },
+    {
+        "name": "Men's Watch",
+        "description": "Classic men's watch",
+        "price": 2999.99,
+        "category": "Accessories",
+        "image_url": "https://cdn.dsmcdn.com/ty1594/prod/QC/20241028/18/26b175ff-720d-3277-9fab-9c5ebb15eb91/1_org_zoom.jpg",
+        "gender": "Men"
+    },
+    {
+        "name": "Black Evening Dress",
+        "description": "Elegant and chic black evening dress",
+        "price": 3549.99,
+        "category": "Women's Clothing",
+        "image_url": "https://cdn.dsmcdn.com/ty1519/product/media/images/prod/QC/20240902/11/ebe59f62-bb96-30f3-af94-01f5d7e5b290/1_org_zoom.jpg",
+        "gender": "Women"
+    },
+    {
+        "name": "Blue Denim Jacket",
+        "description": "Casual and comfortable blue denim jacket",
+        "price": 549.99,
+        "category": "Women's Clothing",
+        "image_url": "https://cdn.dsmcdn.com/ty1592/product/media/images/prod/PIM/20241023/09/436a386b-372b-4459-80bd-269707d73dbd/1_org_zoom.jpg",
+        "gender": "Women"
+    },
+    {
+        "name": "White Tunic",
+        "description": "Comfortable white tunic for daily use",
+        "price": 329.99,
+        "category": "Women's Clothing",
+        "image_url": "https://cdn.dsmcdn.com/ty703/product/media/images/20230126/16/266602775/841184185/1/1_org_zoom.jpg",
+        "gender": "Women"
+    },
+    {
+        "name": "Patterned Dress",
+        "description": "Summer dress with colorful patterns",
+        "price": 979.99,
+        "category": "Women's Clothing",
+        "image_url": "https://cdn.dsmcdn.com/ty1177/product/media/images/prod/PIM/20240220/14/71340bfc-f0ea-4a56-bd57-2e4e4583ee1b/1_org_zoom.jpg",
+        "gender": "Women"
+    },
+    {
+        "name": "Velvet Blouse",
+        "description": "Elegant and chic velvet blouse",
+        "price": 999.99,
+        "category": "Women's Clothing",
+        "image_url": "https://cdn.dsmcdn.com/ty1183/product/media/images/prod/SPM/PIM/20240227/14/b757c563-d75b-354a-a03a-8a5da009b381/1_org_zoom.jpg",
+        "gender": "Women"
+    },
+    {
+        "name": "Plaid Shirt",
+        "description": "Comfortable and modern plaid shirt",
+        "price": 459.99,
+        "category": "Women's Clothing",
+        "image_url": "https://cdn.dsmcdn.com/ty593/product/media/images/20221107/19/209677982/616658154/1/1_org_zoom.jpg",
+        "gender": "Women"
+    },
+    {
+        "name": "Slit Pencil Skirt",
+        "description": "Classic black slit pencil skirt",
+        "price": 539.99,
+        "category": "Women's Clothing",
+        "image_url": "https://cdn.dsmcdn.com/ty1482/product/media/images/prod/QC/20240815/19/de93b94f-a0d1-3d64-996f-d69c5bec7667/1_org_zoom.jpg",
+        "gender": "Women"
+    },
+    {
+        "name": "Burgundy Coat",
+        "description": "Warm and cozy burgundy coat for winter",
+        "price": 3399.99,
+        "category": "Women's Clothing",
+        "image_url": "https://cdn.dsmcdn.com/ty1574/prod/QC/20240928/21/19a2f862-c1e1-328e-ab25-d9efb2a5d408/1_org_zoom.jpg",
+        "gender": "Women"
+    }
+]
