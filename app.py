@@ -4,12 +4,12 @@ import json
 
 app = Flask(__name__)
 
-# Configuration for SQLite database
+
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///data.db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(app)
 
-# Database Models
+
 class Product(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(100), nullable=False)
@@ -17,9 +17,8 @@ class Product(db.Model):
     price = db.Column(db.Float, nullable=False)
     category = db.Column(db.String(50), nullable=False)
     image_url = db.Column(db.String(200), nullable=False)
-    gender = db.Column(db.String(10), nullable=True)  # Gender alanı eklendi
+    gender = db.Column(db.String(10), nullable=True)  
 
-# Load initial data from JSON file
 def load_initial_data():
     with open("data.json", "r", encoding="utf-8") as file:
         products_data = json.load(file)
@@ -32,7 +31,7 @@ def load_initial_data():
                     price=product['price'],
                     category=product['category'],
                     image_url=product['image_url'],
-                    gender=product.get('gender')  # Gender alanı
+                    gender=product.get('gender')  
                 )
                 db.session.add(new_product)
         db.session.commit()
@@ -47,19 +46,19 @@ def home():
 
 @app.route('/search')
 def search():
-    query = request.args.get('q', '').strip().lower()  # Arama sorgusunu al ve küçült
+    query = request.args.get('q', '').strip().lower()  
     if query:
-        if query in ['women', 'man', 'men']:  # Cinsiyet araması yapılıyor mu kontrol et
+        if query in ['women', 'man', 'men']:  
             products = Product.query.filter_by(gender=query.capitalize()).all()
         else:
-            # Girilen sorguya göre isim, açıklama veya kategoriye göre ara
+            
             products = Product.query.filter(
                 Product.name.ilike(f"%{query}%") |
                 Product.description.ilike(f"%{query}%") |
                 Product.category.ilike(f"%{query}%")
             ).all()
     else:
-        products = []  # Boş arama sonuçsuz liste döndürsün
+        products = []  
     return render_template('search_results.html', products=products, query=query)
 
 @app.route('/product/<int:product_id>')
