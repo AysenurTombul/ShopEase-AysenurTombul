@@ -1,4 +1,4 @@
-/* Product Listing */
+
 .products {
     display: flex;
     flex-wrap: wrap;
@@ -24,7 +24,6 @@
 
 .products li img {
     width: 50%;
-    /* Görsellerin boyutunu yarıya düşür */
     height: auto;
     border-radius: 5px;
     margin-bottom: 10px;
