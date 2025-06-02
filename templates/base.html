@@ -1,9 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
     <title>{{ title }}</title>
     <style>
@@ -20,11 +19,31 @@
             text-align: center;
             color: rgb(0, 26, 255);
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            position: relative;
         }
 
         header h1 {
             margin: 0;
             font-size: 2.5rem;
+        }
+
+        .cart-icon {
+            position: absolute;
+            right: 20px;
+            top: 20px;
+            background-color: white;
+            padding: 8px 15px;
+            border-radius: 6px;
+            font-size: 1rem;
+            text-decoration: none;
+            color: #e74c3c;
+            font-weight: bold;
+            border: 2px solid #e74c3c;
+        }
+
+        .cart-icon:hover {
+            background-color: #e74c3c;
+            color: white;
         }
 
         header form {
@@ -62,14 +81,20 @@
         }
     </style>
 </head>
-
 <body>
     <header>
         <h1>ShopEase</h1>
+        <!-- Alışveriş Sepeti Butonu -->
+        <a href="{{ url_for('cart') }}" class="cart-icon">🛒 Cart</a>
+
+        <!-- Arama Formu -->
+        <form action="{{ url_for('search') }}" method="get">
+            <input type="text" name="q" placeholder="Search products..." />
+            <button type="submit">Search</button>
+        </form>
     </header>
     <main>
         {% block content %}{% endblock %}
     </main>
 </body>
-
 </html>
