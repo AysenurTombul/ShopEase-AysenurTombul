@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2>Your Cart</h2>
+
+{% if cart_items %}
+<p><strong>Total:</strong> {{ total_price }} USD</p>
+<ul class="products">
+    {% for item in cart_items %}
+    <li>
+        <a href="/product/{{ item.product.id }}">
+            <img src="{{ item.product.image_url }}" alt="{{ item.product.name }}">
+        </a>
+        <a href="/product/{{ item.product.id }}">{{ item.product.name }}</a>
+        <span>{{ item.product.price }} USD (x{{ item.quantity }}) = {{ item.subtotal }} USD</span>
+        <form action="/update_quantity/{{ item.product.id }}" method="POST" style="margin-top:10px;">
+            <input type="number" name="quantity" value="{{ item.quantity }}" min="1" style="width:60px;">
+            <button type="submit">Update</button>
+        </form>
+        <br>
+        <a href="/remove_from_cart/{{ item.product.id }}">Remove</a>
+    </li>
+    {% endfor %}
+</ul>
+{% else %}
+<p>Your cart is empty.</p>
+{% endif %}
+
+<a href="/" class="back-link">Continue Shopping</a>
+{% endblock %}
+s
