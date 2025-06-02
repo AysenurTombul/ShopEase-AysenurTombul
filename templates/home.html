@@ -18,10 +18,30 @@
             background-color: #f88e25;
             color: #0008ec;
             margin-bottom: 20px;
+            position: relative;
         }
 
         header h1 {
             margin: 0;
+        }
+
+        .cart-icon {
+            position: absolute;
+            right: 20px;
+            top: 20px;
+            background-color: white;
+            padding: 8px 15px;
+            border-radius: 6px;
+            font-size: 1rem;
+            text-decoration: none;
+            color: #e74c3c;
+            font-weight: bold;
+            border: 2px solid #e74c3c;
+        }
+
+        .cart-icon:hover {
+            background-color: #e74c3c;
+            color: white;
         }
 
         form {
@@ -143,6 +163,8 @@
 <body>
     <header>
         <h1>ShopEase</h1>
+        <!-- Sepet ikonu -->
+        <a href="{{ url_for('cart') }}" class="cart-icon">🛒 Cart</a>
     </header>
 
     <form action="/search">
