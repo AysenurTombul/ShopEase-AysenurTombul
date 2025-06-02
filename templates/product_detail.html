@@ -133,5 +133,18 @@
         {% endif %}
     </div>
     <a href="/" class="back-link">Return to Home</a>
+<form action="{{ url_for('add_to_cart', product_id=product.id) }}" method="get">
+    <button type="submit" style="
+        margin-top: 20px;
+        padding: 10px 20px;
+        background-color: #27ae60;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        font-size: 1rem;
+        cursor: pointer;">
+        🛒 Add to Cart
+    </button>
+</form>
 </div>
 {% endblock %}
