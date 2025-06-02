@@ -3,7 +3,7 @@ from flask_sqlalchemy import SQLAlchemy
 import json
 
 app = Flask(__name__)
-app.secret_key = 'gTH8sd9#4jsL!qWez7'  # Güçlü bir key olmalı
+app.secret_key = 'gTH8sd9#4jsL!qWez7'  
 
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///data.db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
@@ -77,7 +77,7 @@ def category_view(category_name):
         return redirect('/')
     return render_template('category.html', category_name=category_name, products=products)
 
-# 🛒 SEPET FONKSİYONLARI
+
 @app.route('/add_to_cart/<int:product_id>')
 def add_to_cart(product_id):
     if 'cart' not in session:
